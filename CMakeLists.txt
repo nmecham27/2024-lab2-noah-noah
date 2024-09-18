@@ -10,7 +10,8 @@ set(picotoolVersion 2.0.0)
 if(DEFINED ENV{PICO_SDK_PATH})
     set(PICO_SDK_PATH $ENV{PICO_SDK_PATH})
 else()
-    include(${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
+    #include(${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
+    set(PICO_SDK_PATH ${USERHOME}/.pico-sdk/sdk/2.0.0)
 endif()
 # ====================================================================================
 cmake_minimum_required(VERSION 3.13)
@@ -18,6 +19,10 @@ cmake_minimum_required(VERSION 3.13)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+if(EXISTS "${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake")
+    include(${USERHOME}/.pico-sdk/cmake/pico-vscode.cmake)
+endif()
 
 # This sets the variant of the board. We are using the pico_w
 set(PICO_BOARD pico_w CACHE STRING "Board type")
@@ -47,7 +52,7 @@ include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
 
 # This is the main binary. List your C files here.
 add_executable(myproject
-    src/hello_freertos.c
+    src/blink.c
     )
 
 pico_set_program_name(myproject "test")
