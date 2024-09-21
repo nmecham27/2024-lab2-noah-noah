@@ -6,9 +6,6 @@
 
 #include <stdio.h>
 
-#include "FreeRTOS.h"
-#include "task.h"
-
 #include "pico/stdlib.h"
 #include "pico/multicore.h"
 #include "pico/cyw43_arch.h"
@@ -41,7 +38,7 @@ void blink_task(__unused void *params) {
 
     // Infinite loop
     while (true) {
-        blink_step(&count, &on);
+        // blink_step(&count, &on);
     }
 }
 

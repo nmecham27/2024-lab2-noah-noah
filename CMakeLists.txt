@@ -51,10 +51,7 @@ add_compile_definitions(
 include_directories(${CMAKE_CURRENT_LIST_DIR}/include)
 
 # This is the main binary. List your C files here.
-add_executable(myproject
-    src/blink.c
-    src/blink_helper.c
-    )
+add_executable(myproject src/blink.c src/blink_helper.c)
 
 pico_set_program_name(myproject "test")
 pico_set_program_version(myproject "0.1")
