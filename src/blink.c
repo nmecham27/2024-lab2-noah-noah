@@ -38,7 +38,7 @@ void blink_task(__unused void *params) {
 
     // Infinite loop
     while (true) {
-        // blink_step(&count, &on);
+        blink_step(&count, &on);
     }
 }
 
