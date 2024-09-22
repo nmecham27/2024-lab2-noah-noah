@@ -42,4 +42,7 @@ add_test(NAME simulate_mytest COMMAND
     -e "$ELF=@$<TARGET_FILE:mytest>; $WORKING=@${CMAKE_SOURCE_DIR}; include @${CMAKE_SOURCE_DIR}/test/simulate.resc; start"
     )
 
+# Another pico macro which generates the uf2 file in addition to the elf
+pico_add_extra_outputs(mytest)
+
 add_custom_target(flash_test picotool load -f $<TARGET_FILE:mytest> DEPENDS mytest)

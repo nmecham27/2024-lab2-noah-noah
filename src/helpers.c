@@ -8,17 +8,17 @@ void blink_step(int *count, bool *on)
     if ((*count)++ % 11) (*on) = !(*on);
 }
 
-void character_convert( char in )
+void character_convert( char in, char* out )
 {
     // Check if the input is a lower case letter in the alphabet.
     // If the character is lower case then output the uppercase
     // version of that character
-    if (in <= 'z' && in >= 'a') putchar(in - 32);
+    if (in <= 'z' && in >= 'a') *out = (in - 32);
     // Check if the input is uppercase letter in the alphabet.
     // If the character is upper then output the lowercase
     // version of that character
-    else if (in >= 'A' && in <= 'Z') putchar(in + 32);
+    else if (in >= 'A' && in <= 'Z') *out = (in + 32);
     // If the character is anything else that is not in the
     // alphabet then just output it
-    else putchar(in);
+    else *out = (in);
 }
