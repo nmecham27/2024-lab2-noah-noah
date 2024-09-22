@@ -15,53 +15,54 @@ void test_character_output()
     TEST_ASSERT_TRUE_MESSAGE(x == 1,"Variable assignment failed.");
 
     char testCharacter;
+    char returnedCharacter;
     //Convert a sequence of lower case characters
     testCharacter = 'h';
-    character_convert( testCharacter );
-    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'H', getchar(), "Failed h" );
+    character_convert( testCharacter, &returnedCharacter );
+    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'H', returnedCharacter, "Failed h" );
 
     testCharacter = 'e';
-    character_convert( testCharacter );
-    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'E', getchar(), "Failed e" );
+    character_convert( testCharacter, &returnedCharacter );
+    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'E', returnedCharacter, "Failed e" );
 
     testCharacter = 'l';
-    character_convert( testCharacter );
-    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'L', getchar(), "Failed l" );
+    character_convert( testCharacter, &returnedCharacter );
+    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'L', returnedCharacter, "Failed l" );
 
     testCharacter = 'l';
-    character_convert( testCharacter );
-    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'L', getchar(), "Failed l, 2" );
+    character_convert( testCharacter, &returnedCharacter );
+    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'L', returnedCharacter, "Failed l, 2" );
 
     testCharacter = 'o';
-    character_convert( testCharacter );
-    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'O', getchar(), "Failed o" );
+    character_convert( testCharacter, &returnedCharacter );
+    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'O', returnedCharacter, "Failed o" );
 
 
     //Convert a sequence of upper case characters
     testCharacter = 'W';
-    character_convert( testCharacter );
-    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'w', getchar(), "Failed W" );
+    character_convert( testCharacter, &returnedCharacter );
+    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'w', returnedCharacter, "Failed W" );
 
     testCharacter = 'O';
-    character_convert( testCharacter );
-    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'o', getchar(), "Failed O" );
+    character_convert( testCharacter, &returnedCharacter );
+    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'o', returnedCharacter, "Failed O" );
 
     testCharacter = 'R';
-    character_convert( testCharacter );
-    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'r', getchar(), "Failed R" );
+    character_convert( testCharacter, &returnedCharacter );
+    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'r', returnedCharacter, "Failed R" );
 
     testCharacter = 'L';
-    character_convert( testCharacter );
-    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'l', getchar(), "Failed L" );
+    character_convert( testCharacter, &returnedCharacter );
+    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'l', returnedCharacter, "Failed L" );
 
     testCharacter = 'D';
-    character_convert( testCharacter );
-    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'd', getchar(), "Failed D" );
+    character_convert( testCharacter, &returnedCharacter );
+    TEST_ASSERT_EQUAL_CHAR_MESSAGE( 'd', returnedCharacter, "Failed D" );
 
     //Convert a non alphabet character
     testCharacter = '&';
-    character_convert( testCharacter );
-    TEST_ASSERT_EQUAL_CHAR_MESSAGE( '&', getchar(), "Failed &" );
+    character_convert( testCharacter, &returnedCharacter );
+    TEST_ASSERT_EQUAL_CHAR_MESSAGE( '&', returnedCharacter, "Failed &" );
 }
 
 void test_blink_step(void)
@@ -125,6 +126,7 @@ int main (void)
     stdio_init_all();
     sleep_ms(5000); // Give time for TTY to attach.
     printf("Start tests\n");
+    printf("HELLLOOOOO");
     UNITY_BEGIN();
     RUN_TEST(test_character_output);
     RUN_TEST(test_blink_step);
