@@ -1,5 +1,6 @@
 # This is the main binary. List your C files here.
 add_executable(hello_freertos
+    helpers.c
     hello_freertos.c
     )
 
